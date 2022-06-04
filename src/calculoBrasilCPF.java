@@ -7,23 +7,25 @@ public class calculoBrasilCPF {
     public static long contadorCPFvalido = 0L;
     
     //metodo que gera cpf
-    public static void geradorCPF() {
-
-        for (long i = 0; i <= 99999999999L; i++) {
+    public static void geradorCPF(long initialValue, long finalValue) {
+        //Percorrendo para gerar todos os CPF's
+        for (long i = initialValue; i <= finalValue; i++) {
+            //connvertendo o indice do for em string
             String indexChar = Long.toString(i);
-
+            //classe tring builder para usar seus métodos especificos
             StringBuilder cpfStringBuilder = new StringBuilder(cpf);
-
-            cpfStringBuilder = cpfStringBuilder.delete((cpf.length() - 1) - indexChar.length(), (cpf.length() - 1));
-
+            //deletando os valores referente a posição inicial e final, tem situações de ter que
+            //remover mais de um valor da String
+            cpfStringBuilder = cpfStringBuilder.delete((cpf.length() - 1) - indexChar.length(), 
+                    (cpf.length() - 1));
+            //adicionando o novos valores para o CPF
             cpfStringBuilder = cpfStringBuilder.append(indexChar);
-
-            //priemeiro digito true
+            System.out.println("\033[4;33m"+cpfStringBuilder);
+            //priemeiro digito e segundo digito true
             if(calculaPrimeiroDigito(new String(cpfStringBuilder)) && 
             calculaSegundoDigito(new String(cpfStringBuilder))){
                     //os dois digitos verificadores são verdadeiros, logo cpf válido
                     contadorCPFvalido++;
-                    System.out.println(cpfStringBuilder);
             }
             primeiroDigito = 0;
             segundoDigito = 0;
@@ -113,5 +115,9 @@ public class calculoBrasilCPF {
             // caso não atende nenhuma das verificações
             return false;
         }
+    }
+    
+    public static long getContadorCPFvalido() {
+        return contadorCPFvalido;
     }
 }
