@@ -18,7 +18,6 @@
     <p>
         Multiplicamos cada dígito do CPF pelo respectivo número e somamos cada um dos resultados:
         <p style="text-align: center">10 + 9 + 8 + 28 + 24 + 20 + 28 + 21 + 14 = 162</p>
-        
         Pegamos o resultado obtido (162 pelo nosso exemplo) 162 e encontramos o resto da divisão desse 
         número por 11.
         <p style="text-align: center">162/11 = quociente 14, resto 8</p>
@@ -28,7 +27,6 @@
         Logo o primeiro dígito verificador é 3. Então podemos pensar no CPF com os dois dígitos calculados 
         como sendo: 111444777-3X. Onde o X será calculado na próxima etapa do algoritmo.
     </p>
-
     <h3>3.2 - Segunda etapa (SEGUNDO digito verificador X):</h3>
     <p>
         Para calcular o segundo dígito verificador (X), vamos usar o primeiro dígito já calculado. Vamos montar a 
@@ -40,23 +38,18 @@
         <p>
             Novamente, efetuamos o resultado da multiplicação e somamos todos os produtos obtidos.
             <p style="text-align: center">11 + 10 + 9 + 32 + 28 + 24 + 35 + 28 + 21 + 6 = 204</p>
-
             Dividimos o total do somatório por 11 e consideramos novamente o resto da divisão.
-
             <p style="text-align: center">204/11 = quociente 18, resto 6</p>
-
             Após obter o resto da divisão por 11, precisamos aplicar a mesma regra que utilizamos para obter o 
             primeiro dígito:
             Se o resto da divisão for menor que 2, então o dígito é igual a 0.
             Se o resto da divisão for maior ou igual a 2, então o dígito é igual a 11 menos o resto da divisão (11 -
             resto)
             <p style="text-align: center">11 - 6 = 5, logo 5 é o nosso segundo dígito verificador</p>
-            
             Logo o nosso CPF fictício será igual a: 111.444.777-35
             Para avaliar a validade do CPF informado pelo usuário basta verificar se os dígitos verificadores gerados 
             pelo algoritmo condizem com os dígitos verificadores que o usuário informou junto ao CPF. No caso do 
             nosso exemplo o CPF informado é válido. (35 é igual a 35).
-
         </p>
     </p>
 </div>
